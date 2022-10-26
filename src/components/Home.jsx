@@ -1,12 +1,18 @@
 import React from 'react';
 import './Home.scss';
+import axios from 'axios';
 
 const Home = () => {
+  const onClick = () => {
+    axios.get('http://localhost:8000/api/topics').then(res => {
+      console.log(res);
+    });
+  };
   return (
     <div className='background'>
       <div>
         <h1 className='title'>Jist</h1>
-        <form class='search-container'>
+        <form className='search-container'>
           <input
             type='text'
             id='search-bar'
@@ -24,18 +30,18 @@ const Home = () => {
           >
             <g
               fill='none'
-              fill-rule='nonzero'
+              fillRule='nonzero'
               stroke='none'
-              stroke-width='1'
-              stroke-linecap='butt'
-              stroke-linejoin='miter'
-              stroke-miterlimit='10'
-              stroke-dasharray=''
-              stroke-dashoffset='0'
-              font-family='none'
-              font-weight='none'
-              font-size='none'
-              text-anchor='none'
+              strokeWidth='1'
+              strokeLinecap='butt'
+              strokeLinejoin='miter'
+              strokeMiterlimit='10'
+              strokeDasharray=''
+              strokeDashoffset='0'
+              fontFamily='none'
+              fontWeight='none'
+              fontSize='none'
+              textAnchor='none'
               style={{ mixBlendMode: 'normal' }}
             >
               <path d='M0,172v-172h172v172z' fill='none'></path>
@@ -46,7 +52,7 @@ const Home = () => {
           </svg>
         </form>
         <div className='button-container'>
-          <div className='button'>
+          <div className='button' onClick={onClick}>
             <p>View all 👀</p>
           </div>
           <div className='button'>
